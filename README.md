@@ -1,2 +1,2 @@
-# customizer-controls
+# Customizer Controls
 WordPress Customizer Controls
