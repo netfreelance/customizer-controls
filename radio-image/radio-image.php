@@ -14,17 +14,6 @@ class Theme_Slug_Customize_Radio_Image_Control extends WP_Customize_Control {
   public $type = 'radio-image';
 
   /**
-   * Enqueue styles for the custom control.
-   *
-   * @access public
-   */
-  public function enqueue() {
-
-    wp_enqueue_style( 'ns-radio-image-style', 'radio-image.css' );
-
-  }
-
-  /**
    * Render the control to be displayed in the Customizer.
    */
   public function render_content() {
