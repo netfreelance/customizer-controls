@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Create a Taxonomies Dropdown control
+ * Create a Dropdown Taxonomies control
  */
-class Theme_Slug_Customize_Taxonomies_Dropdown_Control extends WP_Customize_Control {
+class Theme_Slug_Customize_Dropdown_Taxonomies_Control extends WP_Customize_Control {
 
   /**
    * Declare the control type.
@@ -33,7 +33,7 @@ class Theme_Slug_Customize_Taxonomies_Dropdown_Control extends WP_Customize_Cont
     );
     $args = wp_parse_args( $this->args, $default_args );
 
-    $args['name']         = '_customize-dropdown-taxonomy-' . $this->id;
+    $args['name']         = '_customize-dropdown-taxonomies-' . $this->id;
     $args['selected']     = $this->value();
     $args['echo']         = false;
     ?>
