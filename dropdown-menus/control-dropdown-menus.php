@@ -14,14 +14,6 @@ class Theme_Slug_Customize_Dropdown_Menus_Control extends WP_Customize_Control {
   public $type = 'dropdown-menus';
 
   /**
-   * Custom arguments to pass into `wp_dropdown_categories()`.
-   *
-   * @access public
-   * @var array
-   */
-  public $args = array();
-
-  /**
    * Render the control to be displayed in the Customizer.
    */
   public function render_content() {
