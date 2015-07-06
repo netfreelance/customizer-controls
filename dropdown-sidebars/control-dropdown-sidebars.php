@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Create a Dropdown Menus control
+ * Create a Dropdown Sidebars control
  */
-class Theme_Slug_Customize_Dropdown_Menus_Control extends WP_Customize_Control {
+class Theme_Slug_Customize_Dropdown_Sidebars_Control extends WP_Customize_Control {
 
   /**
    * Declare the control type.
@@ -11,7 +11,7 @@ class Theme_Slug_Customize_Dropdown_Menus_Control extends WP_Customize_Control {
    * @access public
    * @var string
    */
-  public $type = 'dropdown-menus';
+  public $type = 'dropdown-sidebars';
 
   /**
    * Custom arguments to pass into `wp_dropdown_categories()`.
@@ -26,7 +26,9 @@ class Theme_Slug_Customize_Dropdown_Menus_Control extends WP_Customize_Control {
    */
   public function render_content() {
 
-    $all_menus = wp_get_nav_menus();
+    global $wp_registered_sidebars;
+
+    $all_sidebars = $wp_registered_sidebars;
     ?>
     <label>
       <?php if ( ! empty( $this->label ) ) : ?>
@@ -37,12 +39,12 @@ class Theme_Slug_Customize_Dropdown_Menus_Control extends WP_Customize_Control {
       <?php endif; ?>
       <select <?php echo $this->link(); ?>>
          <?php
-           printf('<option value="%s" %s>%s</option>', 0, selected($this->value(), 0, false), ' ' );
+           printf('<option value="%s" %s>%s</option>', '', selected($this->value(), '', false), ' ' );
           ?>
-         <?php if ( ! empty( $all_menus ) ): ?>
-           <?php foreach ( $all_menus as $key => $menu ): ?>
+         <?php if ( ! empty( $all_sidebars ) ): ?>
+           <?php foreach ( $all_sidebars as $key => $sidebar ): ?>
              <?php
-               printf('<option value="%s" %s>%s</option>', esc_attr( $menu->term_id ), selected($this->value(), $menu->term_id, false), esc_html( $menu->name ) );
+               printf('<option value="%s" %s>%s</option>', esc_attr( $key ), selected($this->value(), $key, false), esc_html( $sidebar['name'] ) );
               ?>
            <?php endforeach ?>
         <?php endif ?>
