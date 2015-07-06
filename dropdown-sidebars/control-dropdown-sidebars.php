@@ -22,6 +22,7 @@ class Theme_Slug_Customize_Dropdown_Sidebars_Control extends WP_Customize_Contro
 
     $all_sidebars = $wp_registered_sidebars;
     ?>
+
     <label>
       <?php if ( ! empty( $this->label ) ) : ?>
         <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
@@ -31,17 +32,18 @@ class Theme_Slug_Customize_Dropdown_Sidebars_Control extends WP_Customize_Contro
       <?php endif; ?>
       <select <?php echo $this->link(); ?>>
          <?php
-           printf('<option value="%s" %s>%s</option>', '', selected($this->value(), '', false), ' ' );
+           printf( '<option value="%s" %s>%s</option>', '', selected( $this->value(), '', false ), ' ' );
           ?>
          <?php if ( ! empty( $all_sidebars ) ): ?>
            <?php foreach ( $all_sidebars as $key => $sidebar ): ?>
              <?php
-               printf('<option value="%s" %s>%s</option>', esc_attr( $key ), selected($this->value(), $key, false), esc_html( $sidebar['name'] ) );
+               printf( '<option value="%s" %s>%s</option>', esc_attr( $key ), selected( $this->value(), $key, false ), esc_html( $sidebar['name'] ) );
               ?>
            <?php endforeach ?>
         <?php endif ?>
       </select>
     </label>
+
     <?php
   }
 

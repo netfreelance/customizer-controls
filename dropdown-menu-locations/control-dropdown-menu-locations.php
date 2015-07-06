@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Create a Dropdown Menus control
+ * Create a Dropdown Menu Locations control
  */
-class Theme_Slug_Customize_Dropdown_Menus_Control extends WP_Customize_Control {
+class Theme_Slug_Customize_Dropdown_Menu_Locations_Control extends WP_Customize_Control {
 
   /**
    * Declare the control type.
@@ -11,15 +11,16 @@ class Theme_Slug_Customize_Dropdown_Menus_Control extends WP_Customize_Control {
    * @access public
    * @var string
    */
-  public $type = 'dropdown-menus';
+  public $type = 'dropdown-menu-locations';
 
   /**
    * Render the control to be displayed in the Customizer.
    */
   public function render_content() {
 
-    $all_menus = wp_get_nav_menus();
+    $all_menu_locations = get_registered_nav_menus();
     ?>
+
     <label>
       <?php if ( ! empty( $this->label ) ) : ?>
         <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
@@ -29,17 +30,18 @@ class Theme_Slug_Customize_Dropdown_Menus_Control extends WP_Customize_Control {
       <?php endif; ?>
       <select <?php echo $this->link(); ?>>
          <?php
-           printf( '<option value="%s" %s>%s</option>', 0, selected( $this->value(), 0, false ), ' ' );
+           printf( '<option value="%s" %s>%s</option>', '', selected( $this->value(), '', false ), ' ' );
           ?>
-         <?php if ( ! empty( $all_menus ) ): ?>
-           <?php foreach ( $all_menus as $key => $menu ): ?>
+         <?php if ( ! empty( $all_menu_locations ) ): ?>
+           <?php foreach ( $all_menu_locations as $key => $location ): ?>
              <?php
-               printf( '<option value="%s" %s>%s</option>', esc_attr( $menu->term_id ), selected( $this->value(), $menu->term_id, false ), esc_html( $menu->name ) );
+               printf( '<option value="%s" %s>%s</option>', esc_attr( $key ), selected( $this->value(), $key, false ), esc_html( $location ) );
               ?>
            <?php endforeach ?>
         <?php endif ?>
       </select>
     </label>
+
     <?php
   }
 

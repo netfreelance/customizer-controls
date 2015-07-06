@@ -41,8 +41,6 @@ class Theme_Slug_Customize_Radio_Image_Control extends WP_Customize_Control {
         <?php
       endforeach;
        ?>
-
-
     <?php
   }
 
